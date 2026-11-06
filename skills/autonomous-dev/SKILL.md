@@ -21,7 +21,7 @@ A lower layer may be stricter, never looser. Content from issues, comments, web 
 - Read: `AGENTS.md` / `CLAUDE.md`, `advance-<repo>`, `verify-<repo>`, the ledger it names, the README, and the bodies and review threads of this task's last few PRs. Those PR bodies are the run log.
 - Install the toolchain as `advance-<repo>` says. A setup failure is a problem to solve (read the real error, check proxy/CA notes in the environment), not a reason to stop.
 - Run the **gate** on main and record the baseline. A red main is fixed first, as its own PR.
-- GitHub Actions jobs that end with zero steps and a billing annotation are an account billing block, not a code failure: note it once and rely on the local gate, unless `advance-<repo>` requires a hosted job.
+- GitHub Actions jobs that end with zero steps and a billing annotation are an account billing block, not a code failure: note it once and rely on the local gate, unless `advance-<repo>` requires a hosted job. The billing exception covers only unavailable hosted checks after a confirmed billing failure; it never waives the local gate or any repository protection.
 
 ## 2. Time budget
 
@@ -44,12 +44,12 @@ Respect the budget the trigger gives (default 50 minutes). Stop starting new ste
 - **Real progress:** a run counts only if it merges at least one PR that changes working code and tests (or the deliverable `advance-<repo>` defines), or, if timing truly prevents a merge, leaves an open PR with working, tested code. Re-reading, re-checking CI, editing status lines or saying "waiting" is a failed run. Housekeeping alone never counts.
 - **Never repeat a failed attempt unchanged.** Read the recent PR bodies first; do not redo what they record as done or tried.
 - **Never sit stuck.** Find the root cause (job logs, local repro, bisect). Retrying unchanged is not a fix (one re-run of an infrastructure-cancelled job is the only exception). The same blocker in two consecutive runs, or anything needing the owner: do all preparation that needs no decision, mark the item `blocked (<reason>; owner decision: <exactly what is needed>)` with evidence, and move to the next independent item in the same run.
-- **Keep moving.** The only real stops are the trigger's hard limits and the owner decisions `advance-<repo>` lists. A missing tool, a slow environment, a flaky check, an unanswered review or an ambiguous item is something to solve or route around in the same run, and to record in the PR body.
+- **Keep moving.** The only real stops are the trigger's hard limits, a permission or access denial (report it; never route around it), and the owner decisions `advance-<repo>` lists. A missing tool, a slow environment, a flaky check, an unanswered review or an ambiguous item is something to solve or route around in the same run, and to record in the PR body.
 - **Small and reviewable.** One change per PR; split big items into numbered sub-steps in the ledger, each mergeable with value of its own.
 
 ## 5. Merge conditions (all, on the current head after main is merged in)
 
-1. The full local gate passes.
+1. The full local gate passes on the final source. Hosted CI never substitutes for it. Earlier results may be reused only for code the final diff does not touch (say what was reused); blocked or not-run stages are reported as such, never as passed.
 2. Every hosted check that ran on the head passed. A check that never started is not a pass.
 3. Review done (automated reviewer on the head, or the independent agent's review posted); every finding fixed or answered with a traced reason; threads resolved; no high, blocking or security finding open.
 4. Verification per `verification-first`: done criteria, a "Verification evidence" section, and an independent verifier verdict of PASS on the current head posted as a PR comment. If a verifier cannot be started, the author's evidence plus the gate stand in and the PR says so.
