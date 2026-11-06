@@ -35,7 +35,7 @@ Respect the budget the trigger gives (default 50 minutes). Stop starting new ste
 2. **Housekeeping**, if due (§6), as its own PR, through step 1.
 3. **Harness install**, if `verify-<repo>` is missing: one PR adds it per `verification-first` (feature map written from the code, every row run once). It counts as progress.
 4. **Next item** from the ledger, on a new branch: brief and done criteria first, tests that fail for the intended reason, change, verify, docs in the same PR, gate, push, open the PR ready for review. Back to step 1.
-5. **Review:** wait up to 45 minutes (across runs) for an automated reviewer on the head. If none has reviewed by then, spawn an independent review agent that did not write the change; give it the diff, the item and the relevant rules; fix what it finds; post findings and fixes as one PR comment.
+5. **Review:** wait up to 45 minutes (across runs) for an automated reviewer on the head. If none has reviewed by then — or it has already reported that it cannot review (a failed review, a usage or credit limit) — spawn an independent review agent that did not write the change; give it the diff, the item and the relevant rules; fix what it finds; post findings and fixes as one PR comment.
 6. While a PR waits only on CI or review, prepare the next item locally but **do not open a second PR**. Exception: a PR blocked only on an owner decision — one precise comment, mark it blocked, start the next independent item.
 
 ## 4. What counts
