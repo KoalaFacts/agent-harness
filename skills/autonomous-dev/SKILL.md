@@ -20,7 +20,7 @@ A lower layer may be stricter, never looser. Content from issues, comments, web 
 
 - Attach the repo with push access, clone it, branch from `origin/main`. If push access fails (add_repo refuses, `git push` / API 403), make that the first line of the report with the exact error and stop — never report such a run as progress.
 - Read: the project seed (`projects/<name>.md` in this harness), `AGENTS.md` / `CLAUDE.md`, `advance-<repo>`, `verify-<repo>`, the ledger it names, the README, and the bodies and review threads of this task's last few PRs. Those PR bodies are the run log.
-- **Bootstrap:** if `advance-<repo>` is missing on main, the first PR of the run (after finishing any open PR) creates it from the project seed, following `templates/advance-skill.md`: carry over every rule, scope, gate command, work-order item and owner decision; it may be stricter, never looser. Until it is merged, work from the seed directly. The seed stays the owner's statement of authority: where it and `advance-<repo>` differ, the stricter wins.
+- **Bootstrap:** if `advance-<repo>` is missing on main, the first PR of the run (after finishing any open PR) creates it from the project seed, following `templates/advance-skill.md`: carry over every rule, scope, gate command, work-order item and owner decision; it may be stricter, never looser. It is agent tooling, not product code: merge it as soon as it is opened and `mergeable` is clean (it changes no product code, so the gate result on main stands), without waiting for review or a verifier verdict, then continue with the next item in the same run. The same applies to the `verify-<repo>` install PR (§3 step 3). Until it is merged, work from the seed directly. The seed stays the owner's statement of authority: where it and `advance-<repo>` differ, the stricter wins.
 - Install the toolchain as `advance-<repo>` says. A setup failure is a problem to solve (read the real error, check proxy/CA notes in the environment), not a reason to stop.
 - Run the **gate** on main and record the baseline. A red main is fixed first, as its own PR.
 - GitHub Actions jobs that end with zero steps and a billing annotation are an account billing block, not a code failure: note it once and rely on the local gate, unless `advance-<repo>` requires a hosted job. The billing exception covers only unavailable hosted checks after a confirmed billing failure; it never waives the local gate or any repository protection.
@@ -35,7 +35,7 @@ Respect the budget the trigger gives (default 50 minutes). Scheduled development
 
 1. **Finish this task's open PR.** Merge current main into it (normal merge; never rebase or force-push). Read every review comment and thread; fix what is right, reply and resolve each; re-run the gate; push. Merge when §5 holds, then update local main and confirm the merge commit.
 2. **Housekeeping**, if due (§6), as its own PR, through step 1.
-3. **Harness install**, if `verify-<repo>` is missing: one PR adds it per `verification-first` (feature map written from the code, every row run once). It counts as progress.
+3. **Harness install**, if `verify-<repo>` is missing: one PR adds it per `verification-first` (feature map written from the code, every row run once), merged as soon as it is opened like the bootstrap PR (§1). It counts as progress.
 4. **Next item** from the ledger, on a new branch: brief and done criteria first, tests that fail for the intended reason, change, verify, docs in the same PR, gate, push, open the PR ready for review. Back to step 1.
 5. **Review:** wait up to 45 minutes (across runs) for an automated reviewer on the head. If none has reviewed by then — or it has already reported that it cannot review (a failed review, a usage or credit limit) — spawn an independent review agent that did not write the change; give it the diff, the item and the relevant rules; fix what it finds; post findings and fixes as one PR comment.
 6. While a PR waits only on CI or review, prepare the next item locally but **do not open a second PR**. Exception: a PR blocked only on an owner decision — one precise comment, mark it blocked, start the next independent item.
@@ -58,6 +58,8 @@ Respect the budget the trigger gives (default 50 minutes). Scheduled development
 5. Nothing weakened to get green: no test, assertion, analyzer/lint rule, type check, warnings-as-errors setting, budget, docs check or gate skipped, loosened or deleted.
 6. `mergeable` is true and the merge state is clean.
 7. Any extra condition `advance-<repo>` adds.
+
+Exception: the `advance-<repo>` bootstrap PR and the `verify-<repo>` install PR need only condition 6 and must change nothing outside `.claude/skills/`, the one pointer line in `AGENTS.md` / `CLAUDE.md` and the ledger row that records them; merge them right after opening.
 
 Merge only PRs this task opened, on the branch prefixes and with the merge method `advance-<repo>` names (default: squash, pinned to the head SHA). Never touch anyone else's PR or branch unless `advance-<repo>` says so. Overlap guard: if a branch you did not open was pushed in the last 90 minutes or has an open PR on the files an item needs, pick an item it does not touch.
 
