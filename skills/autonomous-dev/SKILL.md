@@ -59,7 +59,7 @@ Respect the budget the trigger gives (default 50 minutes). Scheduled development
 6. `mergeable` is true and the merge state is clean.
 7. Any extra condition `advance-<repo>` adds.
 
-Exception: the `advance-<repo>` bootstrap PR and the `verify-<repo>` install PR need only condition 6 and must change nothing outside `.claude/skills/` and the one pointer line in `AGENTS.md` / `CLAUDE.md`; merge them right after opening.
+Exception: the `advance-<repo>` bootstrap PR and the `verify-<repo>` install PR need only condition 6 and must change nothing outside `.claude/skills/`, the one pointer line in `AGENTS.md` / `CLAUDE.md` and the ledger row that records them; merge them right after opening.
 
 Merge only PRs this task opened, on the branch prefixes and with the merge method `advance-<repo>` names (default: squash, pinned to the head SHA). Never touch anyone else's PR or branch unless `advance-<repo>` says so. Overlap guard: if a branch you did not open was pushed in the last 90 minutes or has an open PR on the files an item needs, pick an item it does not touch.
 
