@@ -16,7 +16,7 @@ the install branch is `office/verify-skills`. The real boundary is the built app
 - Repo KoalaFacts/ai-office: a pixel-office app — Next/Vinext on Cloudflare Workers with D1/R2, schema in schema/office-v1.json, services in server/, browser controllers in public/, node:test tests in tests/.
 - PRODUCT GOAL (owner, 2026-11-05): AI Office lets any business owner quickly stand up the office they need. We provide industry-optimised office templates; the owner answers a few questions and gets a working office configured for their business. Every step serves that goal; when a choice is open, pick what makes template-based quick setup easier and safer.
 - Work follows docs/ROADMAP.md (goal, milestones M0–M6, steps, acceptance criteria, Status table): the first step not done, in milestone and step order, skipping only `blocked (owner decision)` steps. A complete spec the next step can be built from counts as a spec step's deliverable.
-- Schedule: standard tier — twice a day, 50 minutes per run; docs housekeeping in the first run of the Sydney day.
+- Schedule: raised tier — every 4 hours, 50 minutes per run; docs housekeeping in the first run of the Sydney day.
 
 ### P2 AUTHORITY SPECIFICS
 - Branch prefix `office/` (step branches `office/<milestone-step-slug>`; housekeeping `office/docs-tidy-YYYY-MM-DD`); merge method **merge** (merge commit): `-f merge_method=merge -f sha=<head>`. Only `office/` PRs in KoalaFacts/ai-office.

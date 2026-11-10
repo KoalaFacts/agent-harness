@@ -1,6 +1,6 @@
 # Thin scheduled-task prompt
 
-Fill in `<owner>/<repo>`, `<name>` (the seed in `projects/`) and the budget. Schedule the task in its tier (README, Cadence): priority `M H-23/2 * * *`, standard `M H,H+12 * * *`, staggering minute and hour across tasks. Do not write the cadence into the prompt; it goes stale. Keep the hard limits here: the repo's own skills are edited by the agent, so limits must live where the agent cannot change them.
+Fill in `<owner>/<repo>`, `<name>` (the seed in `projects/`) and the budget. Schedule the task in its tier (README, Cadence): priority `M H-23/2 * * *`, raised `M H-23/4 * * *`, standard `M H,H+12 * * *`, staggering minute and hour across tasks. Do not write the cadence into the prompt; it goes stale. Keep the hard limits here: the repo's own skills are edited by the agent, so limits must live where the agent cannot change them.
 
 ```text
 Advance <owner>/<repo>. Budget: 50 minutes from the start of this run.
