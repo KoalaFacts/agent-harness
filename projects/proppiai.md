@@ -15,7 +15,7 @@ this task installs both skills (`verify-proppiai`) on `proppi/verify-skills`; th
 ### P1 WHAT AND WHY
 - Repo ProppiAI/ProppiAI (proppi.ai): a one-stop property service for self-managing landlords in New Zealand and Australia. The owner asked (2026-11-05) for proactive, autonomous development of the whole plan, not only WhatsApp; make ordinary product and engineering decisions yourself.
 - Direction: docs/product/one-stop-property-service.md (approved 24 Oct 2026) and CLAUDE.md's positioning rules: never imply a service, channel, provider network or completion that does not exist; preparation, external execution and accepted completion are separate milestones; keep human approval and action-receipt boundaries. Design docs under docs/ (whatsapp-document-inbound-design.md, 2026-09-26-ai-workspace-ux-design.md, 2026-10-03-ask-ready-listing-design.md, fact-currency-design.md, listing-claim-check-design.md and others) carry decided designs and unfinished build orders.
-- Schedule: every 4 hours (6 runs a day), 50 minutes per run. Repo docs and copy are en-NZ.
+- Schedule: priority tier — every 2 hours, 50 minutes per run. Repo docs and copy are en-NZ.
 - Equivalent deliverable for B2: a merged PR, review findings fixed and pushed, or a new PR with a finished, tested step.
 
 ### P2 AUTHORITY SPECIFICS

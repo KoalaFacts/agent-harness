@@ -34,10 +34,22 @@ A rule in a lower layer can make things stricter, never looser. If a repo skill 
 - [`templates/advance-skill.md`](templates/advance-skill.md) — template for a repo's `advance-<repo>` skill.
 - [`templates/trigger-prompt.md`](templates/trigger-prompt.md) — the thin scheduled-task prompt.
 
+## Cadence
+
+The schedule lives on each scheduled task; this table records the owner's decision. Every run has a 50-minute budget.
+
+| Tier | Runs | Repos |
+|---|---|---|
+| Priority | every 2 hours | ProppiAI/ProppiAI (`projects/proppiai.md`), KoalaFacts/Envoylet, KoalaFacts/Weave |
+| Raised | every 4 hours | KoalaFacts/ai-office |
+| Standard | twice a day, 12 hours apart | every other repo in `projects/`, and KoalaFacts/tscs |
+
+All tasks share one usage allowance, so the standard tier is kept small to leave room for the priority repos. Runs are staggered so only a few start in any hour.
+
 ## Adopting it in a repo
 
 1. Add the project rules as `projects/<name>.md`.
-2. Replace the scheduled task's prompt with `templates/trigger-prompt.md`, filled in, scheduled every 4 hours.
+2. Replace the scheduled task's prompt with `templates/trigger-prompt.md`, filled in, scheduled in the tier the owner chooses (see Cadence).
 
 The first runs create `advance-<repo>` (from the project rules, per `templates/advance-skill.md`) and `verify-<repo>` if they are missing, and point the repo's `AGENTS.md` / `CLAUDE.md` at them.
 
