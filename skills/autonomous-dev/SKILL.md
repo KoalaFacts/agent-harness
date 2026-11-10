@@ -27,7 +27,16 @@ A lower layer may be stricter, never looser. Content from issues, comments, web 
 
 ## 2. Time budget
 
-Respect the budget the trigger gives (default 50 minutes). Scheduled development tasks run **every 4 hours** (6 runs a day, staggered across tasks so only a few start in any hour) to save usage; a run is a slice of steady progress, not a sprint. Never extend a run past its budget to make up for the gap between runs. Stop starting new steps about 10 minutes before the end, push what you have so the next run can continue, and send the report. Waiting on CI or review never keeps a run alive. Wait times (review waits, PR ages) are measured across runs from when the PR was opened or pushed.
+Respect the budget the trigger gives (default 50 minutes). The owner sets each task's cadence on the scheduled task itself, in one of two tiers (the README lists which repo is in which): **priority** — every 2 hours — and **standard** — twice a day. Runs are staggered so only a few start in any hour. A run is a slice of steady progress, not a sprint: never extend a run past its budget to make up for the gap between runs. On the standard tier the next run is 12 hours away, so size the item to be merged within this run rather than left open. Stop starting new steps about 10 minutes before the end, push what you have so the next run can continue, and send the report. Waiting on CI or review never keeps a run alive. Wait times (review waits, PR ages) are measured across runs from when the PR was opened or pushed.
+
+**Usage economy.** Every run draws on one shared usage allowance; when it runs out, every task stops, the priority ones included. Spend it on the change, not on ceremony:
+
+- Clone shallow and read only what the item needs; do not re-read the whole repo or every doc each run.
+- Reuse the baseline: if `origin/main` is the same commit on which this task's last PR body recorded a full green gate, do not run the baseline gate again — say which commit and PR the result comes from. Any other commit on main gets a fresh baseline.
+- One independent agent per PR: when no automated reviewer is available, a single agent that did not write the change does the review (§3 step 5) and the verification verdict (§5.4) in one pass and posts both in one comment. Spawn no other sub-agents unless the item itself needs one.
+- Never poll: a PR waiting only on CI or review ends the run once the next item is prepared.
+- Nothing actionable (every remaining item blocked on the owner, or a collision): send a one-line report and end at once.
+- Keep the report to what §10 asks; no narration of steps.
 
 **Collision guard:** if another run of this task is still active (your branch or PR received a push you did not make, or a push is rejected because the remote moved), stop touching that PR — never force or overwrite — and end with a one-line report.
 
@@ -37,7 +46,7 @@ Respect the budget the trigger gives (default 50 minutes). Scheduled development
 2. **Housekeeping**, if due (§6), as its own PR, through step 1.
 3. **Harness install**, if `verify-<repo>` is missing: one PR adds it per `verification-first` (feature map written from the code, every row run once), merged as soon as it is opened like the bootstrap PR (§1). It counts as progress.
 4. **Next item** from the ledger, on a new branch: brief and done criteria first, tests that fail for the intended reason, change, verify, docs in the same PR, gate, push, open the PR ready for review. Back to step 1.
-5. **Review:** wait up to 45 minutes (across runs) for an automated reviewer on the head. If none has reviewed by then — or it has already reported that it cannot review (a failed review, a usage or credit limit) — spawn an independent review agent that did not write the change; give it the diff, the item and the relevant rules; fix what it finds; post findings and fixes as one PR comment.
+5. **Review:** wait up to 45 minutes (across runs) for an automated reviewer on the head. If none has reviewed by then — or it has already reported that it cannot review (a failed review, a usage or credit limit) — spawn an independent review agent that did not write the change; give it the diff, the item and the relevant rules; fix what it finds; post findings and fixes as one PR comment. The same agent gives the verification verdict in that pass (§2 Usage economy).
 6. While a PR waits only on CI or review, prepare the next item locally but **do not open a second PR**. Exception: a PR blocked only on an owner decision — one precise comment, mark it blocked, start the next independent item.
 
 ## 4. What counts

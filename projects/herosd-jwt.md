@@ -15,7 +15,7 @@ the real boundary is the spec's own worked examples run through the public API, 
 ### P1 WHAT AND WHY
 - Repo KoalaFacts/HeroSD-JWT (public). A .NET SD-JWT (selective disclosure for JWTs) library: core package HeroSdJwt (BCL-only, net8.0/net9.0/net10.0, AOT-safe) and HeroSdJwt.AspNetCore (DI, authentication handler, distributed replay/revocation adapters).
 - Goal: a spec-conformant, interoperable, secure-by-default, easy-to-use SD-JWT library with always-true, tidy docs, ready for the 2.0 release.
-- Schedule: every 4 hours (6 runs a day), 50 minutes per run.
+- Schedule: standard tier — twice a day, 50 minutes per run.
 
 ### P2 AUTHORITY SPECIFICS
 - Branch prefixes `feature/`, `fix/`, `docs/`, `refactor/`, `test/` (per CLAUDE.md); squash merge. Other sessions also push `fix/` PRs here: apply the overlap guard. Report green Dependabot PRs.

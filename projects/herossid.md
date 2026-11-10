@@ -14,7 +14,7 @@ the real boundary is the API host running locally (PostgreSQL via Docker/Testcon
 
 ### P1 WHAT AND WHY
 - Repo KoalaFacts/HeroSSID (public), .NET 10 / C#. Mission (docs/VISION.md): a trustworthy, portable identity-credential foundation for people, organisations and agents, judged by verified credential flows and independent interoperability. VISION milestones: trust foundation, operable lifecycle, independent exchange, privacy and holder control, pilot readiness.
-- Schedule: every 4 hours (6 runs a day), 50 minutes per run.
+- Schedule: standard tier — twice a day, 50 minutes per run.
 
 ### P2 AUTHORITY SPECIFICS
 - Branch prefixes `feat/`, `fix/`, `test/`, `docs/`, `refactor/`, `ci/`; squash merge. Never dispatch publish-nuget.yml or any publish workflow. User-visible changes in docs/CHANGELOG.md "Unreleased" (create it if missing).

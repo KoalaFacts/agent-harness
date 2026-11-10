@@ -15,7 +15,7 @@ the real boundary is the local Worker (Miniflare with local D1/R2/Durable Object
 ### P1 WHAT AND WHY
 - Repo KoalaFacts/press-floor (pressfloor.org): an independent, source-first public policy discussion forum — Purity + TypeScript, Cloudflare Workers, D1 via Drizzle + Zod + the CQRS mediator in cloudflare/cqrs, a Durable Object for realtime, R2 for local-issue photos, Better Auth Google/guest sign-in, TypeSafe AI "Jev" first review.
 - Goal: a reliable, safe, easy-to-use forum where several policy rooms run at once, contributions are reviewed before they are public, and the docs always say exactly what is true and are easy to find.
-- Schedule: every 4 hours (6 runs a day), 50 minutes per run.
+- Schedule: standard tier — twice a day, 50 minutes per run.
 
 ### P2 AUTHORITY SPECIFICS
 - Branch prefixes `feat/`, `fix/`, `test/`, `docs/`, `refactor/`, `perf/`; squash merge. For this task the PR rhythm replaces AGENTS.md's "work directly on main"; everything else in AGENTS.md stays binding.
