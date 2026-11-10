@@ -46,7 +46,7 @@ Respect the budget the trigger gives (default 50 minutes). The owner sets each t
 2. **Housekeeping**, if due (§6), as its own PR, through step 1.
 3. **Harness install**, if `verify-<repo>` is missing: one PR adds it per `verification-first` (feature map written from the code, every row run once), merged as soon as it is opened like the bootstrap PR (§1). It counts as progress.
 4. **Next item** from the ledger, on a new branch: brief and done criteria first, tests that fail for the intended reason, change, verify, docs in the same PR, gate, push, open the PR ready for review. Back to step 1.
-5. **Review:** wait up to 45 minutes (across runs) for an automated reviewer on the head. If none has reviewed by then — or it has already reported that it cannot review (a failed review, a usage or credit limit) — spawn an independent review agent that did not write the change; give it the diff, the item and the relevant rules; fix what it finds; post findings and fixes as one PR comment. The same agent gives the verification verdict in that pass (§2 Usage economy).
+5. **Review:** a small PR (§5) needs no independent agent. Otherwise wait up to 45 minutes (across runs) for an automated reviewer on the head. If none has reviewed by then — or it has already reported that it cannot review (a failed review, a usage or credit limit) — spawn an independent review agent that did not write the change; give it the diff, the item and the relevant rules; fix what it finds; post findings and fixes as one PR comment. The same agent gives the verification verdict in that pass (§2 Usage economy).
 6. While a PR waits only on CI or review, prepare the next item locally but **do not open a second PR**. Exception: a PR blocked only on an owner decision — one precise comment, mark it blocked, start the next independent item.
 
 ## 4. What counts
@@ -62,11 +62,13 @@ Respect the budget the trigger gives (default 50 minutes). The owner sets each t
 
 1. The full local gate passes on the final source. Hosted CI never substitutes for it. Earlier results may be reused only for code the final diff does not touch (say what was reused); blocked or not-run stages are reported as such, never as passed.
 2. Every hosted check that ran on the head passed. A check that never started is not a pass.
-3. Review done (automated reviewer on the head, or the independent agent's review posted); every finding fixed or answered with a traced reason; threads resolved; no high, blocking or security finding open.
-4. Verification per `verification-first`: done criteria, a "Verification evidence" section, and an independent verifier verdict of PASS on the current head posted as a PR comment. If a verifier cannot be started, the author's evidence plus the gate stand in and the PR says so.
+3. Review done (automated reviewer on the head, or the independent agent's review posted, or for a small PR the author's self-review in the PR body); every finding fixed or answered with a traced reason; threads resolved; no high, blocking or security finding open.
+4. Verification per `verification-first`: done criteria, a "Verification evidence" section, and an independent verifier verdict of PASS on the current head posted as a PR comment. If a verifier cannot be started, the author's evidence plus the gate stand in and the PR says so. A small PR needs no verifier: the author's evidence plus the gate suffice.
 5. Nothing weakened to get green: no test, assertion, analyzer/lint rule, type check, warnings-as-errors setting, budget, docs check or gate skipped, loosened or deleted.
 6. `mergeable` is true and the merge state is clean.
 7. Any extra condition `advance-<repo>` adds.
+
+**Small PR:** it changes only docs, only tests, or fewer than 50 lines of product code, and touches no public API, authentication, cryptography, secrets handling, data migration, dependency, CI or build configuration. Its body says "Small PR: no independent agent" and includes a short self-review (what could break, and why it does not). If an automated reviewer has already reviewed the head, its findings are handled as usual; do not wait for one. Stricter rules in the project seed or `advance-<repo>` still apply.
 
 Exception: the `advance-<repo>` bootstrap PR and the `verify-<repo>` install PR need only condition 6 and must change nothing outside `.claude/skills/`, the one pointer line in `AGENTS.md` / `CLAUDE.md` and the ledger row that records them; merge them right after opening.
 
@@ -76,7 +78,7 @@ Merge only PRs this task opened, on the branch prefixes and with the merge metho
 
 - Every PR keeps the docs it affects true, in the same PR.
 - **The doc set shrinks, never grows.** Do not add documentation files (no new index, roadmap, ledger, progress, history, archive, ADR, plan, spec or per-feature pages, no redirect stubs). Edit existing files. Design notes go in a short section of the existing page that owns the area. Skills under `.claude/skills/` are agent tooling, not docs.
-- **Housekeeping** — once per Sydney calendar day, in the first run since the last merged housekeeping PR: check every command, path, API name, default, version, count and status claim against the code on main; fix or remove what is stale; merge duplicates into their canonical page and delete the rest (git history keeps it); keep the README short; compact the ledger table. The PR body states docs file count and total bytes (all `*.md` outside `node_modules`, `bin`, `obj`) before and after — it must reduce them without losing a still-true fact. Nothing to change → no PR. Never a cosmetic-only PR.
+- **Housekeeping** — on the priority and raised tiers once per Sydney calendar day, on the standard tier once per Sydney week (Monday onwards), in the first run since the last merged housekeeping PR: check every command, path, API name, default, version, count and status claim against the code on main; fix or remove what is stale; merge duplicates into their canonical page and delete the rest (git history keeps it); keep the README short; compact the ledger table. The PR body states docs file count and total bytes (all `*.md` outside `node_modules`, `bin`, `obj`) before and after — it must reduce them without losing a still-true fact. Nothing to change → no PR. Never a cosmetic-only PR.
 - Never rewrite or delete kept records: measured evidence (including negative results), ADRs and decision records already on main, CHANGELOG history, migration headers, owner decisions, licences and provenance.
 
 ## 7. The ledger
@@ -107,7 +109,7 @@ Apply unless `advance-<repo>` says otherwise:
 
 ## 10. Report
 
-One short message to the owner, in the language the trigger names:
+The PR bodies are the run log; the report is only for what the owner needs to see. When this run merged nothing, needs no owner decision, hit no access failure, and the previous run did merge something, the whole report is one line: `<repo>: no change — <reason>`. Otherwise, one short message to the owner, in the language the trigger names:
 
 - if no code PR merged this run, say so at the top, with the concrete blocker and the different approach the next run will take;
 - baseline gate result (test counts);

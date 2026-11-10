@@ -23,7 +23,7 @@ If `verify-<repo>` does not exist yet, create it first: frontmatter `name: verif
 Add a "Verification evidence" section to the PR body. For each done criterion: the exact command or steps, the relevant output (trimmed, not paraphrased), counts or measurements, and paths of artefacts (logs, screenshots) kept in the session. List what was not verified and why. No evidence means not done.
 
 ## 4. Independent verdict
-Spawn a fresh verifier agent that did not write the change. Give it only the brief, the diff, the verify skill and repo access. It re-runs the checks itself and returns PASS or FAIL with its own evidence and findings. The author never issues its own verdict. A new commit after a PASS needs a new verdict. Post the verdict as a PR comment.
+Spawn a fresh verifier agent that did not write the change. Give it only the brief, the diff, the verify skill and repo access. It re-runs the checks itself and returns PASS or FAIL with its own evidence and findings. The author never issues its own verdict. Exception: a small PR as defined in `autonomous-dev` §5 needs no verifier; the evidence and the gate suffice. A new commit after a PASS needs a new verdict. Post the verdict as a PR comment.
 
 ## 5. Iterate
 FAIL means fix, re-verify, and ask for a new verdict. At most three rounds per item; then shrink the item to the part that passes and split out the rest, or mark it blocked with the evidence.

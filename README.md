@@ -36,7 +36,7 @@ A rule in a lower layer can make things stricter, never looser. If a repo skill 
 
 ## Cadence
 
-The schedule lives on each scheduled task; this table records the owner's decision. Every run has a 50-minute budget.
+The schedule lives on each scheduled task; this table is the only place the harness records it (project seeds do not repeat it). Every run has a 50-minute budget.
 
 | Tier | Runs | Repos |
 |---|---|---|

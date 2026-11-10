@@ -11,7 +11,6 @@ the ledger is the implemented/remaining sections of the existing docs/weave-publ
 
 ### P1 WHAT AND WHY
 - Repo KoalaFacts/Envoylet: the agent workspace app at app.envoylet.com, publishing through Weave (KoalaFacts/Weave, the publishing router and governed-actions backbone). A sibling task ("Weave 推进计划") develops Weave; the two build one product and talk ONLY through GitHub issue KoalaFacts/Weave#365 ("Weave ⇄ Envoylet coordination"), whose body holds the protocol, shared plan and current state.
-- Schedule: priority tier — every 2 hours, 50 minutes per run.
 - Repo docs are in Chinese (its AGENTS.md); code, comments, test names and commit messages in English; comments on #365 in English.
 - Equivalent deliverable for B2: a merged PR, a new PR with working tested code, or a pushed commit that fixes a review finding or failure on the open PR.
 

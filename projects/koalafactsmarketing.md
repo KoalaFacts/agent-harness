@@ -15,7 +15,6 @@ the real boundary is the built dist served locally and driven in headless Chromi
 ### P1 WHAT AND WHY
 - Repo KoalaFacts/KoalaFactsMarketing (private): the public site for a physical Koala Facts bakery planned for Chatswood in April 2027 (business events, catering, birthdays, anniversaries, special moments), intended for koalafacts.com.au on Cloudflare Workers + Static Assets, with a guarded enquiry API (D1 + Turnstile, disabled by default). Source in site/ and worker/, generated dist/, native Node 24 .ts scripts and node:test tests.
 - Goal: a launch-ready, accurate, accessible, fast website whose code lands on main in small reviewed steps and whose docs say exactly what is true.
-- Schedule: standard tier — once a day, 50 minutes per run.
 - Why this task exists: earlier sessions spent two weeks adding status comments to Draft PR #4 (feat/backend-stack-alignment, ~89 files, ~13k lines) without merging anything. Do NOT add more status comments to PR #4 and do NOT grow it; land its useful work on main in small PRs (M1).
 
 ### P2 AUTHORITY SPECIFICS
