@@ -42,7 +42,7 @@ The schedule lives on each scheduled task; this table records the owner's decisi
 |---|---|---|
 | Priority | every 2 hours | ProppiAI/ProppiAI (`projects/proppiai.md`), KoalaFacts/Envoylet, KoalaFacts/Weave |
 | Raised | every 4 hours | KoalaFacts/ai-office |
-| Standard | twice a day, 12 hours apart | every other repo in `projects/`, and KoalaFacts/tscs |
+| Standard | once a day | every other repo in `projects/`, and KoalaFacts/tscs |
 
 All tasks share one usage allowance, so the standard tier is kept small to leave room for the priority repos. Runs are staggered so only a few start in any hour.
 

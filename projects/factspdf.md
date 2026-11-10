@@ -15,7 +15,7 @@ the real boundary is the CLI and the `Pdf.Write()` SDK rendering the examples/*.
 ### P1 WHAT AND WHY
 - Repo KoalaFacts/factspdf. A .NET 10 C# HTML-to-PDF engine with a fluent SDK `Pdf.Write()`, a CLI, Native AOT and browser-wasm probes, and the "Can I Render" compatibility site under site/.
 - Goal (owner: "一直开发 直到我们可以成为一个可靠的 mvp 产品"): a RELIABLE MVP — correct and deterministic output, every untrusted input either renders or fails with FactsPdfException, bounded memory and time, a user-friendly SDK, near-zero allocation on the hot path, and docs that say exactly what is true.
-- Schedule: standard tier — twice a day, 50 minutes per run.
+- Schedule: standard tier — once a day, 50 minutes per run.
 
 ### P2 AUTHORITY SPECIFICS
 - Branch prefixes `perf/`, `feat/`, `fix/`, `test/`, `docs/`, `ci/`; squash merge (owner: "通过了就合并 pr").

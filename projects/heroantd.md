@@ -12,7 +12,7 @@ no docs/ROADMAP.md, docs/COMPONENTS.md or CHANGELOG.md is created if missing. Th
 ### P1 WHAT AND WHY
 - Repo KoalaFacts/HeroAntD (public). A Bun monorepo porting Ant Design v6 (React) to framework-agnostic Web Components: packages/core (Stencil 4, light DOM `shadow: false`, tag = Ant CSS prefix, e.g. `<ant-btn>`; vitest browser specs), packages/tokens (Ant Design CSS and tokens extracted from antd by scripts/), packages/icons (generated icon components), packages/docs (Storybook 10, web-components-vite; packages/docs/vercel.json builds it).
 - Goal: a faithful, accessible, easy-to-use Web Components edition of Ant Design v6 — every ported component matching the React API and rendered output as closely as Web Components allow, working in plain HTML and any framework (including native forms), with docs and stories that always say exactly what is true.
-- Schedule: standard tier — twice a day, 50 minutes per run.
+- Schedule: standard tier — once a day, 50 minutes per run.
 - Known blocker (2026-11-06): three runs produced no branch or PR; this session could not reach the repo through the GitHub API. Apply B4's push-access line first.
 
 ### P2 AUTHORITY SPECIFICS
