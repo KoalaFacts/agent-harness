@@ -15,7 +15,6 @@ the real boundary is a real dsh (latest and next) running with the plugin, reach
 ### P1 WHAT AND WHY
 - Repo KoalaFacts/deepseek-harness-lanyard (public; npm package @koalafacts/deepseek-harness-lanyard): an out-of-tree `dsh` (DeepSeek Harness) plugin bundle, TypeScript/ESM, composed over the shipped harness through cordis.patch.yml, with exactly one purpose: using the dsh web GUI from a phone on a home network — explicit LAN bind, self-signed TLS, a gate holding every network request to upstream's own browser session, loopback/config pins, pairing QR, keep-awake.
 - Goal: that one use case reliable and safe against every current dsh release line (latest and next), every guard proven by a mutation test, and docs (README.md + README.zh.md pair, AGENTS.md, docs/) always true, short and well organised. README.zh.md stays Chinese.
-- Schedule: standard tier — once a day, 50 minutes per run.
 - SCOPE RULE (binding, from AGENTS.md): NOT a general-purpose gateway, reverse proxy or auth layer and must not grow into one. A change that does not serve someone opening the dsh GUI on their phone is out of scope. The plugin issues no credential of its own (authentication is upstream's), changes no harness source, and installing it changes nothing visible. Making the network the default, adding a credential, or widening what an unauthenticated LAN peer can reach are owner decisions. Deleting dead code or duplication with tests proving behaviour counts as progress.
 
 ### P2 AUTHORITY SPECIFICS

@@ -1,6 +1,6 @@
 # ProppiAI-Agent — project rules
 
-Owner-controlled seed for the "ProppiAI-Agent 推进计划" scheduled task (repos ProppiAI/ProppiAI and ProppiAI/ProppiAI-Agent). The repo skill is `.claude/skills/advance-proppiai-agent/SKILL.md` in ProppiAI/ProppiAI; if it is missing, the task's first PR creates it from this file (see `skills/autonomous-dev` §1). The task may make these rules stricter in its own skill, never looser. Schedule: standard tier — once a day, 50 minutes per run.
+Owner-controlled seed for the "ProppiAI-Agent 推进计划" scheduled task (repos ProppiAI/ProppiAI and ProppiAI/ProppiAI-Agent). The repo skill is `.claude/skills/advance-proppiai-agent/SKILL.md` in ProppiAI/ProppiAI; if it is missing, the task's first PR creates it from this file (see `skills/autonomous-dev` §1). The task may make these rules stricter in its own skill, never looser.
 
 ## What and why
 - Develop the Proppi Agent autonomously and keep the public ProppiAI/ProppiAI-Agent repository in step with the main repository. The Agent is: the authenticated MCP service at https://agents.proppi.ai/api/mcp (also the approved, live ChatGPT app), its widgets, and the Proppi Agent plugin package (offline skills proppi-workflow and proppi-evidence-brief; desktop companion with proppi-account-workflow).

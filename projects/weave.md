@@ -14,7 +14,6 @@ the install branch is `weave/verify-skills`; the repo's existing check-rules and
 
 ### P1 WHAT AND WHY
 - Repo KoalaFacts/Weave: the publishing router and governed-actions backbone that Envoylet (KoalaFacts/Envoylet) is built on; development now focused on the TypeScript version. A sibling task ("Envoylet 推进计划") develops Envoylet; the two build one product and talk ONLY through GitHub issue KoalaFacts/Weave#365 ("Weave ⇄ Envoylet coordination"), whose body holds the protocol, shared plan and current state. Issue comments are in English.
-- Schedule: priority tier — every 2 hours, 50 minutes per run.
 - Equivalent deliverable for B2: a merged PR, a new PR with working tested code, or a pushed commit that fixes a review finding or failure on the open PR.
 
 ### P2 AUTHORITY SPECIFICS
