@@ -15,7 +15,7 @@ the real boundary is the official vectors run through the public API (RFC append
 ### P1 WHAT AND WHY
 - Repo KoalaFacts/HeroCrypt (public). A .NET cryptography library (netstandard2.0, net8.0, net9.0, net10.0; xUnit v3 on Microsoft.Testing.Platform): hashes/KDFs (SHA, Blake2b, Argon2, PBKDF2, HKDF, Scrypt), AEADs (ChaCha20/XChaCha20-Poly1305, AES-GCM/CCM/SIV/OCB), stream ciphers, RSA/ECDSA/Ed25519/X25519/secp256k1, .NET 10 ML-KEM/ML-DSA/SLH-DSA, an RFC 9580 OpenPGP subset, BIP32/39, Shamir, X3DH/Double Ratchet, and educational protocols.
 - Goal: every supported path proven correct against official standards vectors and independent implementations, robust against hostile input, honest and well-organised documentation that states exactly what is qualified, and an easy, safe-by-default API.
-- Schedule: standard tier — twice a day, 50 minutes per run.
+- Schedule: standard tier — once a day, 50 minutes per run.
 
 ### P2 AUTHORITY SPECIFICS
 - Branch prefixes `feat/`, `fix/`, `test/`, `docs/`, `refactor/`, `perf/`, `ci/`; squash merge. Report green Dependabot PRs; never merge them.

@@ -15,7 +15,7 @@ the install branch is `claude/verify-skills`. The real boundary is the built lib
 ### P1 WHAT AND WHY
 - Repo KoalaFacts/FactsYOLO (public). An original, Apache-2.0, Rust-first vision core with a C ABI and thin C# (later Go/TS) bindings, embedded by customers in their own CCTV cameras, NVRs and edge devices on premises. Design: docs/superpowers/specs/2026-11-05-td2-general-detector-design.md (on main once PR #68 merges, otherwise on branch claude/td2-general-detector-design-20261105).
 - Task order (owner-approved 2026-11-05): T1 detection (TD2: objects, animals, people, vehicles, faces, licence plates) → T2 licence-plate recognition → T3 scene recognition → T4 face recognition.
-- Schedule: standard tier — twice a day, 50 minutes per run.
+- Schedule: standard tier — once a day, 50 minutes per run.
 - Equivalent deliverable for B2: merged code, tests, measured evidence or a decision record that moves a ledger item forward; negative results count when recorded.
 
 ### P2 AUTHORITY SPECIFICS

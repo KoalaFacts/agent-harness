@@ -15,7 +15,7 @@ install the skills in KoalaFacts/project-growth only — never in the library re
 ### P1 WHAT AND WHY
 - Repo KoalaFacts/project-growth (private): the growth-operations repository for 15 promotion targets (14 technical projects plus the KoalaFacts Chatswood bakery, prelaunch): channels, assets, execution records with receipts, measurement and reports, all in Node.js 24 native TypeScript with node:test.
 - Goal: get the projects in front of real potential customers and prove it with receipts, then measure.
-- Schedule: standard tier — twice a day, 50 minutes per run.
+- Schedule: standard tier — once a day, 50 minutes per run.
 - Language: the repo's own docs, reports and logs stay in Chinese (as written); code, comments, test names, commit messages and PR text are in English.
 
 ### P2 WHAT COUNTS AS PROGRESS HERE (replaces "code and tests" in B2)

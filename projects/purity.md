@@ -14,7 +14,7 @@ the verifier verdict is separate from P5's Codex review rule and does not replac
 
 ### P1 WHAT AND WHY
 - Repo KoalaFacts/Purity (PurityJS). Goal: SURPASS SolidJS v2 — clearly differentiated (Web Components + Shadow DOM, direct DOM templates with no-build JIT and CSP-safe strict AOT, zero runtime dependencies, modular entries, non-lossy SSR/hydration/islands), very easy to use and excellent in performance.
-- Schedule: standard tier — twice a day, 50 minutes per run. ADRs are in English.
+- Schedule: standard tier — once a day, 50 minutes per run. ADRs are in English.
 - Equivalent deliverable for B2: merged code, tests, measured improvements or docs that change what a user can do.
 
 ### P2 AUTHORITY SPECIFICS

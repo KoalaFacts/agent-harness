@@ -15,7 +15,7 @@ the install branch is `docs/verify-skills`; the skills line goes in whichever of
 ### P1 WHAT AND WHY
 - Repo KoalaFacts/HeroParser. A .NET CSV / Fixed-Width / Excel / JSONL / HTB parser library with a source generator, a console engine, a CLI, a WebAssembly npm package and a browser demo.
 - Goal: .NET 11 readiness before .NET 11 GA, all dependencies current, and documentation that is always true, tidy and organised — preparation only, no new release (owner: "对全部依赖升级 然后开始兼容 net 11 但是我们不需要发布新版本 只是准备").
-- Schedule: standard tier — twice a day, 50 minutes per run.
+- Schedule: standard tier — once a day, 50 minutes per run.
 
 ### P2 AUTHORITY SPECIFICS
 - Branch prefixes `net11/`, `deps/`, `fix/`, `docs/`; squash merge. Also allowed (owner: "全程你自主开发", "能合并就合并"): PR #167 (`feature/net11-support`, counts as this task's PR) and green Dependabot patch/minor PRs with no findings, merged between PRs. Other people may push to #167: fetch first and merge their commits in; never overwrite or revert their work without a traced reason. Touch #162 only to close it as superseded after #167 merges.

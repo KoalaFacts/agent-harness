@@ -15,7 +15,7 @@ the real boundary is real RabbitMQ and PostgreSQL (Docker locally, otherwise the
 ### P1 WHAT AND WHY
 - Repo KoalaFacts/HeroMessaging (public). A .NET messaging library (net8.0/net9.0/net10.0): in-process commands/queries/publish, PostgreSQL and SQL Server storage (Outbox, Inbox, Saga), a RabbitMQ transport, serialization plugins, source generators, observability and a NativeAOT consumer.
 - Goal: a credible MassTransit replacement for the workloads it claims — better performance, lower resource use, a friendly public API — proven scenario by scenario as docs/masstransit-replacement-acceptance.md requires.
-- Schedule: standard tier — twice a day, 50 minutes per run.
+- Schedule: standard tier — once a day, 50 minutes per run.
 
 ### P2 AUTHORITY SPECIFICS
 - Branch prefixes `fix/`, `feat/`, `test/`, `perf/`, `docs/`, `ci/`; squash merge. Never touch codex/ branches (e.g. #118), Dependabot or other sessions' work.
