@@ -17,7 +17,7 @@ the real boundary is the spec's own worked examples run through the public API, 
 - Goal: a spec-conformant, interoperable, secure-by-default, easy-to-use SD-JWT library with always-true, tidy docs, ready for the 2.0 release.
 
 ### P2 AUTHORITY SPECIFICS
-- Branch prefixes `feature/`, `fix/`, `docs/`, `refactor/`, `test/` (per CLAUDE.md); squash merge. Other sessions also push `fix/` PRs here: apply the overlap guard. Report green Dependabot PRs.
+- Branch prefixes `feature/`, `fix/`, `docs/`, `refactor/`, `test/` (per CLAUDE.md); squash merge. Other sessions also push `fix/` PRs here: apply the overlap guard. Every open PR in the repo (Codex, Dependabot, other sessions, the owner's) is in scope for open-PR triage (autonomous-dev §3 step 0).
 - Never edit, dispatch or re-run publish-nuget.yml, create-release.yml or publish-approved-2.0.0.yml (that last one runs on any push to main that touches it — never touch that file). User-visible changes in CHANGELOG.md [Unreleased] and docs/users/upgrading-to-2.0.md when they affect upgrading.
 
 ### P3 SETUP AND GATE

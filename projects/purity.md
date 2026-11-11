@@ -18,7 +18,7 @@ the verifier verdict is separate from P5's Codex review rule and does not replac
 - Equivalent deliverable for B2: merged code, tests, measured improvements or docs that change what a user can do.
 
 ### P2 AUTHORITY SPECIFICS
-- Branch prefixes `perf/`, `feat/`, `fix/`, `test/`, `docs/` opened by this task, plus the PR for branch `audit/code-quality-2026-11-05` (the audit this plan starts from; #346 was closed and a successor PR from the same branch carries it); squash merge. Housekeeping branch: `docs/tidy-YYYY-MM-DD`. Other sessions and Dependabot work here.
+- Branch prefixes `perf/`, `feat/`, `fix/`, `test/`, `docs/` opened by this task, plus the PR for branch `audit/code-quality-2026-11-05` (the audit this plan starts from; #346 was closed and a successor PR from the same branch carries it); squash merge. Housekeeping branch: `docs/tidy-YYYY-MM-DD`. Other sessions and Dependabot work here. Every open PR in the repo (Codex, Dependabot, other sessions, the owner's) is in scope for open-PR triage (autonomous-dev §3 step 0).
 - Publishing to npm stays the owner's: never run or dispatch the publish workflow, never bump versions for a release, never tag or create Releases.
 
 ### P3 SETUP AND GATE

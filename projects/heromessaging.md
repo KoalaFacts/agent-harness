@@ -17,7 +17,7 @@ the real boundary is real RabbitMQ and PostgreSQL (Docker locally, otherwise the
 - Goal: a credible MassTransit replacement for the workloads it claims — better performance, lower resource use, a friendly public API — proven scenario by scenario as docs/masstransit-replacement-acceptance.md requires.
 
 ### P2 AUTHORITY SPECIFICS
-- Branch prefixes `fix/`, `feat/`, `test/`, `perf/`, `docs/`, `ci/`; squash merge. Never touch codex/ branches (e.g. #118), Dependabot or other sessions' work.
+- Branch prefixes `fix/`, `feat/`, `test/`, `perf/`, `docs/`, `ci/`; squash merge. Every open PR in the repo (Codex, Dependabot, other sessions, the owner's) is in scope for open-PR triage (autonomous-dev §3 step 0).
 - Never dispatch or re-run create-release.yml, publish-nuget.yml or any publish workflow. CHANGELOG.md [Unreleased].
 
 ### P3 SETUP AND GATE

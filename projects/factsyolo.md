@@ -18,7 +18,7 @@ the install branch is `claude/verify-skills`. The real boundary is the built lib
 - Equivalent deliverable for B2: merged code, tests, measured evidence or a decision record that moves a ledger item forward; negative results count when recorded.
 
 ### P2 AUTHORITY SPECIFICS
-- Branch prefix `claude/` (and PR #68); squash merge. Never merge codex/ branches or Dependabot. Housekeeping branch: `claude/docs-hygiene-YYYY-MM-DD`.
+- Branch prefix `claude/` (and PR #68); squash merge. Every open PR in the repo (Codex, Dependabot, other sessions, the owner's) is in scope for open-PR triage (autonomous-dev §3 step 0). Housekeeping branch: `claude/docs-hygiene-YYYY-MM-DD`.
 - A PR opened in this run may be merged in this run only after all hosted CI on its head completed and passed and any review bot finished; if Codex reviews this repo and has not reviewed the head, wait (up to ~30 minutes in-run, otherwise next run) while the PR is younger than 12 hours.
 
 ### P3 OWNER DECISIONS ALREADY MADE (2026-11-05)

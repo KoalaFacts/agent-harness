@@ -19,7 +19,7 @@ this task installs both skills (`verify-proppiai`) on `proppi/verify-skills`; th
 - Equivalent deliverable for B2: a merged PR, review findings fixed and pushed, or a new PR with a finished, tested step.
 
 ### P2 AUTHORITY SPECIFICS
-- Branch prefix `proppi/` (housekeeping: `proppi/docs-cleanup-<yyyymmdd>-<slice>`); squash merge. Never merge anything else; never merge the postgres 4 Dependabot PR (#731) or any dependency bump. The separate "ProppiAI-Agent 推进计划" task works on `agent/` branches in the same repo: never touch its PRs or files it has open.
+- Branch prefix `proppi/` (housekeeping: `proppi/docs-cleanup-<yyyymmdd>-<slice>`); squash merge. Open-PR triage (autonomous-dev §3 step 0) covers every open PR except `agent/` branches (the other task's) and dependency bumps: never merge the postgres 4 Dependabot PR (#731) or any dependency bump (owner decision; report them). The separate "ProppiAI-Agent 推进计划" task works on `agent/` branches in the same repo: never touch its PRs or files it has open.
 - Merging to main deploys to PRODUCTION through Vercel. Actions is billing-blocked (deploy-supabase does not run, CI checks do not start); the local gate is the evidence.
 
 ### P3 SETUP AND GATE

@@ -18,7 +18,7 @@ the real boundary is a real dsh (latest and next) running with the plugin, reach
 - SCOPE RULE (binding, from AGENTS.md): NOT a general-purpose gateway, reverse proxy or auth layer and must not grow into one. A change that does not serve someone opening the dsh GUI on their phone is out of scope. The plugin issues no credential of its own (authentication is upstream's), changes no harness source, and installing it changes nothing visible. Making the network the default, adding a credential, or widening what an unauthenticated LAN peer can reach are owner decisions. Deleting dead code or duplication with tests proving behaviour counts as progress.
 
 ### P2 AUTHORITY SPECIFICS
-- Branch prefixes `fix/`, `feat/`, `test/`, `docs/`, `ci/`, `deps/`, `refactor/`; squash merge. Report green Dependabot PRs instead of merging them.
+- Branch prefixes `fix/`, `feat/`, `test/`, `docs/`, `ci/`, `deps/`, `refactor/`; squash merge. Every open PR in the repo (Codex, Dependabot, other sessions, the owner's) is in scope for open-PR triage (autonomous-dev §3 step 0).
 - NO RELEASE: never dispatch or re-run release.yml or publish-npm.yml (not even dry_run), never edit them except for a proven bug with an independent agent review, never create tags or GitHub Releases, never change the version in package.json, never `npm publish`, never touch npm trust or the `production` environment. User-visible changes go in the Unreleased list (B11) and in both READMEs.
 - Keep every action pinned by SHA.
 

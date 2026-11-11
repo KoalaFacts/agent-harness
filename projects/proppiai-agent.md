@@ -20,7 +20,7 @@ Owner-controlled seed for the "ProppiAI-Agent 推进计划" scheduled task (repo
 ## Authority (owner, 2026-11-05: "自主合并发布 不要我介入只要符合条件")
 - Main repo: squash-merge PRs this task opens on branches starting `agent/` when every merge condition holds.
 - Public repo: update ProppiAI-Agent's `generated-code` branch with a verified export, as Public snapshot sync describes, without asking. This is the owner-authorised source-snapshot route of RELEASE.md, not a certified Release.
-- Never merge or touch anyone else's PR or branch: the separate "Proppi 推进计划" task works in the same main repo on `proppi/` branches; never merge Dependabot (#731 or any dependency bump).
+- Open-PR triage (autonomous-dev §3 step 0) covers only `agent/` PRs and branches here; the separate "Proppi 推进计划" task works in the same main repo and triages everything else — never touch its `proppi/` PRs or branches; never merge Dependabot (#731 or any dependency bump).
 - Not available to this task: the formal Release path. Never publish a main-repo release `proppi-agent-v*`, never dispatch or re-run proppi-agent-release.yml, never run publish.ts with --execute, never create tags or GitHub Releases in either repo, never set the release-enablement variables, never change publication.json, never create or use App credentials. If a formal Release becomes worthwhile, prepare its evidence and say in the report exactly what the owner would have to enable.
 
 ## Versions and changelog
