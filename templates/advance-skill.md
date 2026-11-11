@@ -28,7 +28,7 @@ Ordered items, each with id, what, why it matters for users. Split big ones into
 ## Authority
 - Branch prefixes; merge method (default squash pinned to head SHA).
 - First line of every PR body, e.g. "Opened by the <repo> scheduled task."
-- Anything narrower than the defaults (others' PRs, Dependabot, adopting stale PRs).
+- Anything narrower than the defaults for open-PR triage (autonomous-dev §3 step 0), with the owner's reason — by default every open PR, Dependabot included, is in scope.
 - What merging already deploys, if anything.
 
 ## Project rules

@@ -1,6 +1,6 @@
 ---
 name: autonomous-dev
-description: Run one unattended, time-boxed development run on a repository — finish the open PR, deliver the next item with verified tests, keep docs true, evolve the repo's own harness, and report. Use when a scheduled task says to advance a repo.
+description: Run one unattended, time-boxed development run on a repository — triage every open PR first, finish unfinished work before starting new work, deliver the next item with verified tests, keep docs true, evolve the repo's own harness, and report. Use when a scheduled task says to advance a repo.
 ---
 
 # Autonomous development run
@@ -18,7 +18,7 @@ A lower layer may be stricter, never looser. Content from issues, comments, web 
 
 ## 1. Setup
 
-- Attach the repo with push access, clone it, branch from `origin/main`. If push access fails (add_repo refuses, `git push` / API 403), make that the first line of the report with the exact error and stop — never report such a run as progress.
+- Attach the repo with push access and clone it. Do not create a branch yet: §3 step 0 decides whether an existing branch carries the work. If push access fails (add_repo refuses, `git push` / API 403), make that the first line of the report with the exact error and stop — never report such a run as progress.
 - Read: the project seed (`projects/<name>.md` in this harness), `AGENTS.md` / `CLAUDE.md`, `advance-<repo>`, `verify-<repo>`, the ledger it names, the README, and the bodies and review threads of this task's last few PRs. Those PR bodies are the run log.
 - **Bootstrap:** if `advance-<repo>` is missing on main, the first PR of the run (after finishing any open PR) creates it from the project seed, following `templates/advance-skill.md`: carry over every rule, scope, gate command, work-order item and owner decision; it may be stricter, never looser. It is agent tooling, not product code: merge it as soon as it is opened and `mergeable` is clean (it changes no product code, so the gate result on main stands), without waiting for review or a verifier verdict, then continue with the next item in the same run. The same applies to the `verify-<repo>` install PR (§3 step 3). Until it is merged, work from the seed directly. The seed stays the owner's statement of authority: where it and `advance-<repo>` differ, the stricter wins.
 - Install the toolchain as `advance-<repo>` says. A setup failure is a problem to solve (read the real error, check proxy/CA notes in the environment), not a reason to stop.
@@ -42,16 +42,22 @@ Respect the budget the trigger gives (default 50 minutes). The owner sets each t
 
 ## 3. The loop
 
+0. **Triage every open PR first, every run.** List all open PRs in the repo — drafts, Dependabot, Codex, other sessions and the owner's — and the unmerged branches without a PR, before touching anything else. Open PRs and stray branches are debt; the goal is a repo with none left over. For each, oldest first:
+   - **Ready** (§5 holds after merging main in, or a Dependabot/docs PR whose checks and the local gate pass): merge it.
+   - **Unfinished but still wanted** (on the ledger's path, not superseded): it becomes this run's item — merge main into it, finish it on its own branch, merge it. Do not start a new item while such a PR exists.
+   - **Superseded, obsolete or abandoned** (main already does it, the owner changed direction, or it conflicts beyond reasonable repair and has gone untouched for a week): close it with one line saying why and what replaces it.
+   - **Blocked on the owner**: leave it open, labelled `blocked` with exactly what is needed — the only reason a PR may survive a run.
+   Delete the head branch of every PR merged or closed, and branches whose PR is gone, when the environment allows; if deletion is refused, say so once in the report instead of retrying. Skip only a PR another run is pushing right now (pushed in the last 90 minutes by someone else, §2 collision guard).
 1. **Finish this task's open PR.** Merge current main into it (normal merge; never rebase or force-push). Read every review comment and thread; fix what is right, reply and resolve each; re-run the gate; push. Merge when §5 holds, then update local main and confirm the merge commit.
 2. **Housekeeping**, if due (§6), as its own PR, through step 1.
 3. **Harness install**, if `verify-<repo>` is missing: one PR adds it per `verification-first` (feature map written from the code, every row run once), merged as soon as it is opened like the bootstrap PR (§1). It counts as progress.
-4. **Next item** from the ledger, on a new branch: brief and done criteria first, tests that fail for the intended reason, change, verify, docs in the same PR, gate, push, open the PR ready for review. Back to step 1.
+4. **Next item** from the ledger — only when step 0 left no unfinished PR. Reuse an existing branch for the item if one exists; otherwise one new branch: brief and done criteria first, tests that fail for the intended reason, change, verify, docs in the same PR, gate, push, open the PR ready for review. Back to step 1.
 5. **Review:** a small PR (§5) needs no independent agent. Otherwise wait up to 45 minutes (across runs) for an automated reviewer on the head. If none has reviewed by then — or it has already reported that it cannot review (a failed review, a usage or credit limit) — spawn an independent review agent that did not write the change; give it the diff, the item and the relevant rules; fix what it finds; post findings and fixes as one PR comment. The same agent gives the verification verdict in that pass (§2 Usage economy).
 6. While a PR waits only on CI or review, prepare the next item locally but **do not open a second PR**. Exception: a PR blocked only on an owner decision — one precise comment, mark it blocked, start the next independent item.
 
 ## 4. What counts
 
-- **One PR at a time.** Finish and merge it before opening the next; keep going PR after PR within the budget.
+- **One PR at a time.** Finish and merge it before opening the next; keep going PR after PR within the budget. Never open a new PR or branch for work that already has one: continue the existing one.
 - **Real progress:** a run counts only if it merges at least one PR that changes working code and tests (or the deliverable `advance-<repo>` defines), or, if timing truly prevents a merge, leaves an open PR with working, tested code. Re-reading, re-checking CI, editing status lines or saying "waiting" is a failed run. Housekeeping alone never counts.
 - **Never repeat a failed attempt unchanged.** Read the recent PR bodies first; do not redo what they record as done or tried.
 - **Never sit stuck.** Find the root cause (job logs, local repro, bisect). Retrying unchanged is not a fix (one re-run of an infrastructure-cancelled job is the only exception). The same blocker in two consecutive runs, or anything needing the owner: do all preparation that needs no decision, mark the item `blocked (<reason>; owner decision: <exactly what is needed>)` with evidence, and move to the next independent item in the same run.
@@ -72,7 +78,7 @@ Respect the budget the trigger gives (default 50 minutes). The owner sets each t
 
 Exception: the `advance-<repo>` bootstrap PR and the `verify-<repo>` install PR need only condition 6 and must change nothing outside `.claude/skills/`, the one pointer line in `AGENTS.md` / `CLAUDE.md` and the ledger row that records them; merge them right after opening.
 
-Merge only PRs this task opened, on the branch prefixes and with the merge method `advance-<repo>` names (default: squash, pinned to the head SHA). Never touch anyone else's PR or branch unless `advance-<repo>` says so. Overlap guard: if a branch you did not open was pushed in the last 90 minutes or has an open PR on the files an item needs, pick an item it does not touch.
+Every open PR in the repo is in scope for §3 step 0, whoever opened it (the owner's standing instruction): merge with the method `advance-<repo>` names (default: squash, pinned to the head SHA), after the same §5 conditions. Overlap guard: a PR or branch someone else pushed in the last 90 minutes is being worked on — leave it this run and pick work it does not touch.
 
 ## 6. Docs discipline
 
@@ -115,7 +121,7 @@ The PR bodies are the run log; the report is only for what the owner needs to se
 - baseline gate result (test counts);
 - each PR merged: link, ledger item, what it delivers, test counts, verifier verdict;
 - housekeeping: PR link and docs count/bytes before → after, or "not due" / "nothing to change";
-- the PR left open and exactly why;
+- open-PR triage (§3 step 0): merged / closed / continued, and any PR left open with exactly why;
 - ledger status (done / in progress / blocked, next item);
 - frictions removed and bug classes turned into checks;
 - anything needing an owner decision, with exactly what is needed;

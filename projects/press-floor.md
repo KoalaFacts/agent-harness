@@ -19,7 +19,7 @@ the real boundary is the local Worker (Miniflare with local D1/R2/Durable Object
 ### P2 AUTHORITY SPECIFICS
 - Branch prefixes `feat/`, `fix/`, `test/`, `docs/`, `refactor/`, `perf/`; squash merge. For this task the PR rhythm replaces AGENTS.md's "work directly on main"; everything else in AGENTS.md stays binding.
 - Merging to main does NOT deploy production: deploy.yml's deploy job runs only on workflow_dispatch. Deploying stays the owner's: never dispatch or re-run deploy.yml, room-publish.yml, content-sync.yml, moderator.yml, cloudflare-auth-secret.yml, website-email-routing.yml or any workflow that writes to Cloudflare; never run wrangler against a remote. Read-only public checks of https://pressfloor.org are allowed.
-- Never touch PR #33 (`fix/issue-report-required-fields-20261102`) or other sessions' work; if another session's open PR covers an item, pick a different item.
+- Every open PR in the repo (Codex, Dependabot, other sessions, the owner's) is in scope for open-PR triage (autonomous-dev §3 step 0).
 - The daily "Press Floor 每日选题" task commits scouted topics straight to main (content/topics/<date>/, docs/topics/<date>.md) around 06:52 Sydney. Never edit, move or delete those files, content/sections.json, published room content or locale copy; never touch docs/topics/.
 
 ### P3 SETUP AND GATE

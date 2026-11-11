@@ -15,7 +15,7 @@ the ledger is the implemented/remaining sections of the existing docs/weave-publ
 - Equivalent deliverable for B2: a merged PR, a new PR with working tested code, or a pushed commit that fixes a review finding or failure on the open PR.
 
 ### P2 AUTHORITY SPECIFICS
-- Branch prefix `weave/` (housekeeping: `weave/docs-housekeeping-YYYY-MM-DD`); squash merge. Never touch other PRs such as #4 and #10.
+- Branch prefix `weave/` (housekeeping: `weave/docs-housekeeping-YYYY-MM-DD`); squash merge. Every open PR in the repo (Codex, Dependabot, other sessions, the owner's) is in scope for open-PR triage (autonomous-dev §3 step 0).
 - Merging to main makes Cloudflare Workers Builds publish to PRODUCTION (owner authorised, 2026-11-05). Never deploy any other way. After a merge, once Workers Builds has had time to publish, run a read-only smoke check (e.g. `curl -sI https://app.envoylet.com/` and any public health route) and report it; if your merge broke production, open a revert PR at once and merge it under the same conditions.
 - Actions jobs here do not start (billing block); the local gate is the evidence.
 

@@ -13,7 +13,7 @@ Advance <owner>/<repo>. Budget: 50 minutes from the start of this run.
    - Never spend money or credits on any paid service.
    - Never release, tag, publish packages, bump versions for a release, or deploy beyond what merging already does.
    - Never touch production data, secrets, repository settings, rulesets, branch protection or workflow permissions.
-   - Never push to main, force-push, or merge, push to or delete anyone else's PR or branch.
+   - Never push to main or force-push. Other people's PRs and branches (owner, Codex, Dependabot, other sessions) are handled only through the open-PR triage in autonomous-dev §3 step 0: merge when ready, continue when unfinished, close when superseded — never overwrite their commits, and leave alone anything pushed in the last 90 minutes.
    - Never push to or merge anything in KoalaFacts/agent-harness; propose changes as a PR there or in the report.
 4. Report to the owner in Chinese, in one short message.
 ```

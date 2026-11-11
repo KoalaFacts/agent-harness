@@ -17,7 +17,7 @@ the real boundary is the official vectors run through the public API (RFC append
 - Goal: every supported path proven correct against official standards vectors and independent implementations, robust against hostile input, honest and well-organised documentation that states exactly what is qualified, and an easy, safe-by-default API.
 
 ### P2 AUTHORITY SPECIFICS
-- Branch prefixes `feat/`, `fix/`, `test/`, `docs/`, `refactor/`, `perf/`, `ci/`; squash merge. Report green Dependabot PRs; never merge them.
+- Branch prefixes `feat/`, `fix/`, `test/`, `docs/`, `refactor/`, `perf/`, `ci/`; squash merge. Every open PR in the repo (Codex, Dependabot, other sessions, the owner's) is in scope for open-PR triage (autonomous-dev §3 step 0).
 - Never edit, dispatch or re-run publish-nuget.yml or create-release.yml. User-visible changes go in CHANGELOG.md [Unreleased] and docs/migration-guide.md when they affect upgrading.
 
 ### P3 SETUP AND GATE
